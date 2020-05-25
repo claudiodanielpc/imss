@@ -2,7 +2,7 @@
 # Trabajadores asegurados ante el IMSS
 
 
-En este repositorio encontrarán los datos agregados del número de trabajadores totales asegurados en el IMSS desde 2000 hasta el último corte realizado por el Instituto (abril 2020)
+En este repositorio encontrarán los datos agregados del número de trabajadores totales y de la construcción asegurados en el IMSS desde 2000 hasta el último corte realizado por el Instituto (abril 2020)
 
 * **Fuentes de información**
 
