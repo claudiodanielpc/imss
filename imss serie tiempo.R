@@ -14,7 +14,7 @@
   urlimss<-"https://raw.githubusercontent.com/claudiodanielpc/imss/master/archivos/serietiempoimss.csv"
   
   imss<-read.csv(urlimss,
-               encoding="UTF-8",header=TRUE,check.names=FALSE)
+               encoding="latin",header=TRUE,check.names=FALSE)
   
   
  
@@ -38,13 +38,12 @@
   colores <- c("#feb24c","#bdbdbd")
 
   ##Se crea el gráfico plano
-  p<-ggplot(imss, aes(fecha, var)) +
+  p<-ggplot(imss, aes(fecha, var,group=tipo)) +
     geom_line(aes(color = tipo),size=3)+
     #Mostrar los valores de fechas específicas
-    geom_text(aes(label=ifelse((fecha =='2020-04-15' | fecha=="2009-09-15" & tipo=="construcción"),
-                               etiqueta,
-                               ifelse((fecha=="2020-04-15" & tipo=="total"),etiqueta,""))),color="red",
-              hjust=0.5,vjust=2,size=6,fontface="bold")+
+    geom_text(aes(label=ifelse(fecha =='2020-05-15',
+                               etiqueta,"")),color="red",
+              hjust=0.5,vjust=2,size=5.5,fontface="bold")+
     scale_color_manual("Tipo",values = colores,labels=c("Construcción","Total"))+
     theme_grey() +
     scale_x_date(date_breaks="3 months",date_labels = "%b %Y")+
@@ -53,7 +52,8 @@
       subtitle = "(Variación porcentual respecto al mismo mes del año anterior)",
       y = "Var. %",
       x="Fecha",
-      caption = "Fuente: @claudiodanielpc con información del IMSS."
+      caption = "Fuente: Elaborado por CANADEVI Nacional. Gerencia de Fondos de Vivienda. Coordinación de Indicadores de Vivienda
+con información del IMSS."
     )+
     theme(plot.title = element_text(hjust = 0, size=20,face="bold"),
           plot.subtitle = element_text(hjust = 0, size=15, face="italic"),
@@ -70,16 +70,16 @@
   ##Adicional: Si se quiere crear animación del gráfico con gganimate, se corre el código de abajo
   
   #animp<-p+
-#transition_reveal(along=imss$fecha)
+#transition_reveal(imss$fecha)
   
   
   
   
 #animp %>% animate(fps = 15,
- #                   nframes = 100,
-  #duration=7,
-  #end_pause = 25,
-  #width = 800, height = 800)
+  #         nframes = 100,
+ # duration=7,
+  #end_pause = 30,
+  #width = 1000, height = 800)
   
   #anim_save("empleoconst.gif")
   
