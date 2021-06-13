@@ -41,7 +41,7 @@
   p<-ggplot(imss, aes(fecha, var,group=tipo)) +
     geom_line(aes(color = tipo),size=3)+
     #Mostrar los valores de fechas específicas
-    geom_text(aes(label=ifelse(fecha =='2020-05-15',
+    geom_text(aes(label=ifelse(fecha =='2021-05-15',
                                etiqueta,"")),color="red",
               hjust=0.5,vjust=2,size=5.5,fontface="bold")+
     scale_color_manual("Tipo",values = colores,labels=c("Construcción","Total"))+
