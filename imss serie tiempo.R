@@ -69,18 +69,18 @@ con información del IMSS."
   
   ##Adicional: Si se quiere crear animación del gráfico con gganimate, se corre el código de abajo
   
-  #animp<-p+
-#transition_reveal(imss$fecha)
+  animp<-p+
+transition_reveal(imss$fecha)
   
   
   
   
-#animp %>% animate(fps = 15,
-  #         nframes = 100,
- # duration=7,
-  #end_pause = 30,
-  #width = 1000, height = 800)
+animp %>% animate(fps = 15,
+           nframes = 100,
+  duration=7,
+  end_pause = 30,
+  width = 1000, height = 800)
   
-  #anim_save("empleoconst.gif")
+  anim_save("empleoconst.gif")
   
   
