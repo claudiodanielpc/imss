@@ -5,9 +5,10 @@ rm(list=ls())
 
 #Establecer límite de memoria
 memory.limit(size = 200000)
+options(timeout=1000)
 
 #Directorio de trabajo
-setwd("C:/Users/ALIENWARE/Documents/")
+setwd("D:/")
 dir.create("imss")
 
 
@@ -51,7 +52,7 @@ consolidada<-
   #leer y agrupar los datos
   purrr::map(archivos,
                  ~ read.csv(glue::glue("imss/{.x}"),
-                            sep="|"
+                            sep="|",fileEncoding="latin1"
                  ) %>%
                   #Nombre de las variables en minúsculas
                    janitor::clean_names()%>%
